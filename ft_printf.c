@@ -13,6 +13,23 @@
 #include "ft_printf.h"
 #include "libft.h"
 
+int     write_char(char c);
+int     ft_search(char c, va_list args);
+int     ft_printf(const char *str, ...);
+char    *write_string(char *str);
+
+int write_unsigned(unsigned int n)
+{
+    int		length;
+    char    nbr;
+
+    length = 0;
+    nbr = ft_itoa(n);
+    length = write_string(nbr);
+    free(nbr);
+    return (length);
+}
+
 int write_char(char c)
 {
     ft_putchar(c);
@@ -37,63 +54,6 @@ char *write_string(char *str)
     return (i);
 }
 
-int	write_number(int n)
-{
-    int		length;
-    char    nbr;
-
-	length = 0;
-	nbr = ft_itoa(n);
-	length = write_string(nbr);
-	free(nbr);
-	return (length);
-}
-
-int	pointer_lenght(uintptr_t num)
-{
-	int	len;
-
-	len = 0;
-	while (num != 0)
-	{
-		len++;
-		num = num / 16;
-	}
-	return (len);
-}
-
-void	pointer_help(uintptr_t num)
-{
-	if (num >= 16)
-	{
-		pointer_help(num / 16);
-		pointer_help(num % 16);
-	}
-	else
-	{
-		if (num <= 9)
-			ft_putchar_fd((num + '0'), 1);
-		else
-			ft_putchar_fd((num - 10 + 'a'), 1);
-	}
-}
-
-int	write_pointer(unsigned long long ptr)
-{
-	int length;
-
-	length = 0;
-	length += write(1, "0x", 2);
-	if (ptr == 0)
-		length += write(1, "0", 1);
-	else
-	{
-		pointer_help(ptr);
-		length += pointer_lenght(ptr);
-	}
-	return (length);
-}
-
 int ft_search(char c, va_list args)
 {
     int     length;
@@ -107,18 +67,14 @@ int ft_search(char c, va_list args)
         length += write_pointer(va_arg(args, unsigned long long));
     else if (c == 'd' || c == 'i')
         length += write_number(va_arg(args, int));
-    else if (c == 'o')
-        length += 
     else if (c == 'u')
-        length += 
+        length += write_unsigned(va_arg(args, unsigned int));
     else if (c == 'x')
-        length += 
+        length += write_hex(va_arg(args, unsigned int));
     else if (c == 'X')
-        length += 
-    else if (c == 'f')
-        length += 
+        length += write_hexx(va_arg(args, unsigned int));
     else if (c == '%')
-        length += 
+        length += write_percent();
     return (length);
 }
 
@@ -147,4 +103,10 @@ int ft_printf(const char *str, ...)
     }
     va_end(args);
 	return (length);
+}
+
+int write_percent()
+{
+    ft_putchar_fd('%', 1);
+    return (1);
 }
