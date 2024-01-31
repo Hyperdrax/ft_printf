@@ -13,11 +13,6 @@
 #include "ft_printf.h"
 #include "libft.h"
 
-int     write_char(char c);
-int     ft_search(char c, va_list args);
-int     ft_printf(const char *str, ...);
-char    *write_string(char *str);
-
 int write_unsigned(unsigned int n)
 {
     int		length;

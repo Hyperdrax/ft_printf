@@ -13,10 +13,6 @@
 #include "ft_printf.h"
 #include "libft.h"
 
-int     write_hex(unsigned int n);
-int     write_hex_helper(unsigned int n);
-int     ft_hex_lenght(unsigned int n);
-
 int	write_hex(unsigned int n)
 {
     int    length;

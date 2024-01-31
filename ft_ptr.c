@@ -13,10 +13,6 @@
 #include "ft_printf.h"
 #include "libft.h"
 
-int     write_pointer(unsigned long long ptr);
-int     pointer_lenght(uintptr_t num);
-void	pointer_help(uintptr_t num);
-
 int	pointer_lenght(uintptr_t num)
 {
 	int	len;
