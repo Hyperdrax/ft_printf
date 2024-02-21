@@ -6,51 +6,11 @@
 /*   By: florian <florian@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 11:22:58 by fhensel           #+#    #+#             */
-/*   Updated: 2024/02/21 15:50:34 by florian          ###   ########.fr       */
+/*   Updated: 2024/02/21 18:23:52 by florian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	*write_unsigned(unsigned int n)
-{
-	int		*length;
-	char	*nbr;
-
-	length = 0;
-	nbr = ft_itoa(n);
-	length = write_string(nbr);
-	free(nbr);
-	return (length);
-}
-
-int	write_char(char c)
-{
-	ft_putchar_fd(c, 1);
-	return (1);
-}
-
-int	*write_string(char *str)
-{
-	int	i;
-	int	*count;
-	int	*length;
-
-	i = 0;
-	if (!str)
-	{
-		ft_putstr_fd("(null)", 1);
-		length = (int *)6;
-		return (length);
-	}
-	while (str[i])
-	{
-		ft_putchar_fd(str[i], 1);
-		i++;
-		count++;
-	}
-	return (count);
-}
 
 int	ft_search(char c, va_list args)
 {
