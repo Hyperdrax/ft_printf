@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nbr.c                                           :+:      :+:    :+:   */
+/*   ft_percent.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: florian <florian@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/29 16:19:19 by fhensel           #+#    #+#             */
-/*   Updated: 2024/02/21 14:18:12 by florian          ###   ########.fr       */
+/*   Created: 2024/02/21 14:10:18 by florian           #+#    #+#             */
+/*   Updated: 2024/02/21 14:10:41 by florian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
 
-int	write_number(int n)
+int	write_percent(void)
 {
-	int		length;
-	char	nbr;
-
-	length = 0;
-	nbr = ft_itoa(n);
-	length = write_string(nbr);
-	free(nbr);
-	return (length);
+	ft_putchar_fd('%', 1);
+	return (1);
 }

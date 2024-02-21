@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ptr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fhensel <fhensel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: florian <florian@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 16:16:43 by fhensel           #+#    #+#             */
-/*   Updated: 2024/01/29 16:16:43 by fhensel          ###   ########.fr       */
+/*   Updated: 2024/02/21 13:59:11 by florian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	pointer_help(uintptr_t num)
 
 int	write_pointer(unsigned long long ptr)
 {
-	int length;
+	int	length;
 
 	length = 0;
 	length += write(1, "0x", 2);

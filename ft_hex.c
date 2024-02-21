@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_hex.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fhensel <fhensel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: florian <florian@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 16:40:22 by fhensel           #+#    #+#             */
-/*   Updated: 2024/01/29 16:40:22 by fhensel          ###   ########.fr       */
+/*   Updated: 2024/02/21 14:16:37 by florian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,73 +15,73 @@
 
 int	write_hex(unsigned int n)
 {
-    int    length;
-    
-    if (n == 0)
-        return(ft_putchar_fd(0, 1));
-    else
-    {
-        write_hex_helper(n);
-        length = ft_hex_lenght(n);
-    }
-    return (length);
+	int	length;
+
+	if (n == 0)
+		return (ft_putchar_fd(0, 1));
+	else
+	{
+		write_hex_helper(n);
+		length = ft_hex_lenght(n);
+	}
+	return (length);
 }
 
-int write_hexx(unsigned int n);
+int	write_hexx(unsigned int n)
 {
-    int    length;
-    
-    if (n == 0)
-        return(ft_putchar_fd(0, 1));
-    else
-    {
-        write_hexx_helper(n);
-        length = ft_hex_lenght(n);
-    }
-    return (length);
-} 
+	int	length;
 
-int write_hex_helper(unsigned int n);
-{
-    if (num >= 16)
-    {
-        write_hex_helper(num / 16);
-        write_hex_helper(num % 16);
-    }
-    else
-    {
-        if (num < 10)
-            ft_putchar_fd(num + '0', 1);
-        else
-            ft_putchar_fd(num - 10 + 'a', 1);
-    }
+	if (n == 0)
+		return (ft_putchar_fd(0, 1));
+	else
+	{
+		write_hexx_helper(n);
+		length = ft_hex_lenght(n);
+	}
+	return (length);
 }
 
-int write_hexx_helper(unsigned int n);
+int	write_hex_helper(unsigned int n)
 {
-    if (num >= 16)
-    {
-        write_hexx_helper(num / 16);
-        write_hexx_helper(num % 16);
-    }
-    else
-    {
-        if (num < 10)
-            ft_putchar_fd(num + '0', 1);
-        else
-            ft_putchar_fd(num - 10 + 'A', 1);
-    }
+	if (n >= 16)
+	{
+		write_hex_helper(n / 16);
+		write_hex_helper(n % 16);
+	}
+	else
+	{
+		if (n < 10)
+			ft_putchar_fd(n + '0', 1);
+		else
+			ft_putchar_fd(n - 10 + 'a', 1);
+	}
 }
 
-int ft_hex_lenght(unsigned int n)
+int	write_hexx_helper(unsigned int n)
 {
-    int     length;
+	if (n >= 16)
+	{
+		write_hexx_helper(n / 16);
+		write_hexx_helper(n % 16);
+	}
+	else
+	{
+		if (n < 10)
+			ft_putchar_fd(n + '0', 1);
+		else
+			ft_putchar_fd(n - 10 + 'A', 1);
+	}
+}
+
+int	ft_hex_lenght(unsigned int n)
+{
+	int	length;
 
 	length = 0;
-	while (num != 0)
+	while (n != 0)
 	{
 		length++;
-		num = num / 16;
+		n = n / 16;
 	}
-    return (length);
+	return (length);
 }
