@@ -6,17 +6,16 @@
 /*   By: florian <florian@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 11:22:58 by fhensel           #+#    #+#             */
-/*   Updated: 2024/02/21 14:10:07 by florian          ###   ########.fr       */
+/*   Updated: 2024/02/21 15:50:34 by florian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
 
-int	write_unsigned(unsigned int n)
+int	*write_unsigned(unsigned int n)
 {
-	int		length;
-	char	nbr;
+	int		*length;
+	char	*nbr;
 
 	length = 0;
 	nbr = ft_itoa(n);
@@ -27,26 +26,30 @@ int	write_unsigned(unsigned int n)
 
 int	write_char(char c)
 {
-	ft_putchar(c);
+	ft_putchar_fd(c, 1);
 	return (1);
 }
 
-char	*write_string(char *str)
+int	*write_string(char *str)
 {
 	int	i;
+	int	*count;
+	int	*length;
 
 	i = 0;
 	if (!str)
 	{
 		ft_putstr_fd("(null)", 1);
-		return (6);
+		length = (int *)6;
+		return (length);
 	}
 	while (str[i])
 	{
-		ft_putchar(str[i]);
+		ft_putchar_fd(str[i], 1);
 		i++;
+		count++;
 	}
-	return (i);
+	return (count);
 }
 
 int	ft_search(char c, va_list args)
@@ -61,9 +64,9 @@ int	ft_search(char c, va_list args)
 	else if (c == 'p')
 		length += write_pointer(va_arg(args, unsigned long long));
 	else if (c == 'd' || c == 'i')
-		length += write_number(va_arg(args, int));
+		length += *write_number(va_arg(args, int));
 	else if (c == 'u')
-		length += write_unsigned(va_arg(args, unsigned int));
+		length += *write_unsigned(va_arg(args, unsigned int));
 	else if (c == 'x')
 		length += write_hex(va_arg(args, unsigned int));
 	else if (c == 'X')
@@ -91,7 +94,7 @@ int	ft_printf(const char *str, ...)
 		}
 		else
 		{
-			ft_putchar(str[i]);
+			ft_putchar_fd(str[i], 1);
 			length++;
 		}
 		i++;

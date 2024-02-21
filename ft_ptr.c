@@ -6,12 +6,11 @@
 /*   By: florian <florian@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 16:16:43 by fhensel           #+#    #+#             */
-/*   Updated: 2024/02/21 13:59:11 by florian          ###   ########.fr       */
+/*   Updated: 2024/02/21 14:54:30 by florian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
 
 int	pointer_lenght(uintptr_t num)
 {

@@ -6,19 +6,21 @@
 /*   By: florian <florian@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 16:40:22 by fhensel           #+#    #+#             */
-/*   Updated: 2024/02/21 14:16:37 by florian          ###   ########.fr       */
+/*   Updated: 2024/02/21 15:15:33 by florian          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
 
 int	write_hex(unsigned int n)
 {
 	int	length;
 
 	if (n == 0)
-		return (ft_putchar_fd(0, 1));
+	{
+		ft_putchar_fd(0, 1);
+		return (0);
+	}
 	else
 	{
 		write_hex_helper(n);
@@ -32,7 +34,10 @@ int	write_hexx(unsigned int n)
 	int	length;
 
 	if (n == 0)
-		return (ft_putchar_fd(0, 1));
+	{
+		ft_putchar_fd(0, 1);
+		return (0);
+	}
 	else
 	{
 		write_hexx_helper(n);
@@ -41,7 +46,7 @@ int	write_hexx(unsigned int n)
 	return (length);
 }
 
-int	write_hex_helper(unsigned int n)
+void	write_hex_helper(unsigned int n)
 {
 	if (n >= 16)
 	{
@@ -57,7 +62,7 @@ int	write_hex_helper(unsigned int n)
 	}
 }
 
-int	write_hexx_helper(unsigned int n)
+void	write_hexx_helper(unsigned int n)
 {
 	if (n >= 16)
 	{
