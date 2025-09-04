@@ -3,14 +3,48 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: florian <florian@student.42.fr>            +#+  +:+       +#+        */
+/*   By: flhensel <flhensel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/02 11:22:58 by fhensel           #+#    #+#             */
-/*   Updated: 2024/02/21 18:23:52 by florian          ###   ########.fr       */
+/*   Created: 2025/08/12 14:50:16 by flhensel          #+#    #+#             */
+/*   Updated: 2025/09/04 10:06:26 by flhensel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	write_char(char c)
+{
+	write(1, &c, 1);
+	return (1);
+}
+
+int	write_percent(void)
+{
+	write(1, '%', 1);
+	return (1);
+}
+
+int	*write_string(char *str)
+{
+	int	i;
+	int	*count;
+	int	*length;
+
+	i = 0;
+	if (!str)
+	{
+		ft_putstr_fd("(null)", 1);
+		length = (int *)6;
+		return (length);
+	}
+	while (str[i])
+	{
+		ft_putchar_fd(str[i], 1);
+		i++;
+		count++;
+	}
+	return (count);
+}
 
 int	ft_search(char c, va_list args)
 {

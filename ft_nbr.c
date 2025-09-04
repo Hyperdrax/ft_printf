@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_nbr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: florian <florian@student.42.fr>            +#+  +:+       +#+        */
+/*   By: flhensel <flhensel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/29 16:19:19 by fhensel           #+#    #+#             */
-/*   Updated: 2024/02/21 18:37:59 by florian          ###   ########.fr       */
+/*   Created: 2025/09/04 09:47:59 by flhensel          #+#    #+#             */
+/*   Updated: 2025/09/04 09:48:39 by flhensel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	*write_number(int n)
 	free(nbr);
 	return (length);
 }
+
 
 int	*write_unsigned(unsigned int n)
 {
