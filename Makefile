@@ -29,8 +29,7 @@ $(OBJ_DIR)/%.o:%.c
 
 all : $(NAME)
 
-$(NAME):
-	$(LIBFT) $(OBJ_DIR) $(OBJS)
+$(NAME): $(LIBFT) $(OBJ_DIR) $(OBJS)
 	cp $(LIBFT) $(NAME)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 
