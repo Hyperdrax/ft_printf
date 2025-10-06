@@ -6,7 +6,7 @@
 /*   By: flhensel <flhensel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:50:13 by flhensel          #+#    #+#             */
-/*   Updated: 2025/09/04 10:05:44 by flhensel         ###   ########.fr       */
+/*   Updated: 2025/10/06 15:41:49 by flhensel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int		ft_printf(const char *str, ...);
 int		ft_search(char c, va_list args);
 int		write_char(char c);
 int		write_percent(void);
-int		*write_string(char *str);
-int		*write_number(int n);
-int		*write_unsigned(unsigned int n);
+int		write_string(char *str);
+int		write_number(int n);
+int		write_unsigned(unsigned int n);
 int		pointer_lenght(uintptr_t num);
 int		write_pointer(unsigned long long ptr);
 void	pointer_help(uintptr_t num);
