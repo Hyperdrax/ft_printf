@@ -6,15 +6,15 @@
 /*   By: flhensel <flhensel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 09:47:59 by flhensel          #+#    #+#             */
-/*   Updated: 2025/10/06 15:17:05 by flhensel         ###   ########.fr       */
+/*   Updated: 2025/10/06 16:03:37 by flhensel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	*write_number(int n)
+int	write_number(int n)
 {
-	int		*length;
+	int		length;
 	char	*nbr;
 
 	length = 0;
@@ -24,13 +24,38 @@ int	*write_number(int n)
 	return (length);
 }
 
-int	*write_unsigned(unsigned int n)
+char	*ft_utoa(unsigned int n)
 {
-	int		*length;
+	char			*str;
+	unsigned int	num;
+	int				len;
+
+	num = n;
+	len = 1;
+	while (num >= 10)
+	{
+		num /= 10;
+		len++;
+	}
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
+	str[len] = '\0';
+	while (len > 0)
+	{
+		str[--len] = (n % 10) + '0';
+		n /= 10;
+	}
+	return (str);
+}
+
+int	write_unsigned(unsigned int n)
+{
+	int		length;
 	char	*nbr;
 
 	length = 0;
-	nbr = ft_itoa(n);
+	nbr = ft_utoa(n);
 	length = write_string(nbr);
 	free(nbr);
 	return (length);
