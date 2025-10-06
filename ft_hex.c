@@ -6,7 +6,7 @@
 /*   By: flhensel <flhensel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 10:05:17 by flhensel          #+#    #+#             */
-/*   Updated: 2025/09/04 10:05:23 by flhensel         ###   ########.fr       */
+/*   Updated: 2025/10/06 16:07:20 by flhensel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int	write_hex(unsigned int n)
 
 	if (n == 0)
 	{
-		ft_putchar_fd(0, 1);
-		return (0);
+		ft_putchar_fd('0', 1);
+		return (1);
 	}
 	else
 	{
@@ -35,8 +35,8 @@ int	write_hexx(unsigned int n)
 
 	if (n == 0)
 	{
-		ft_putchar_fd(0, 1);
-		return (0);
+		ft_putchar_fd('0', 1);
+		return (1);
 	}
 	else
 	{
@@ -83,6 +83,8 @@ int	ft_hex_lenght(unsigned int n)
 	int	length;
 
 	length = 0;
+	if (n == 0)
+		return (1);
 	while (n != 0)
 	{
 		length++;
