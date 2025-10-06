@@ -6,7 +6,7 @@
 /*   By: flhensel <flhensel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 14:50:16 by flhensel          #+#    #+#             */
-/*   Updated: 2025/09/04 10:06:26 by flhensel         ###   ########.fr       */
+/*   Updated: 2025/10/06 15:42:11 by flhensel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,24 @@ int	write_char(char c)
 
 int	write_percent(void)
 {
-	write(1, '%', 1);
+	char	c;
+
+	c = '%';
+	write(1, &c, 1);
 	return (1);
 }
 
-int	*write_string(char *str)
+int	write_string(char *str)
 {
 	int	i;
-	int	*count;
-	int	*length;
+	int	count;
 
 	i = 0;
+	count = 0;
 	if (!str)
 	{
 		ft_putstr_fd("(null)", 1);
-		length = (int *)6;
-		return (length);
+		return (6);
 	}
 	while (str[i])
 	{
@@ -54,13 +56,13 @@ int	ft_search(char c, va_list args)
 	if (c == 'c')
 		length += write_char(va_arg(args, int));
 	else if (c == 's')
-		length += *write_string(va_arg(args, char *));
+		length += write_string(va_arg(args, char *));
 	else if (c == 'p')
 		length += write_pointer(va_arg(args, unsigned long long));
 	else if (c == 'd' || c == 'i')
-		length += *write_number(va_arg(args, int));
+		length += write_number(va_arg(args, int));
 	else if (c == 'u')
-		length += *write_unsigned(va_arg(args, unsigned int));
+		length += write_unsigned(va_arg(args, unsigned int));
 	else if (c == 'x')
 		length += write_hex(va_arg(args, unsigned int));
 	else if (c == 'X')
