@@ -33,6 +33,8 @@ int	write_pointer(unsigned long long ptr)
 {
 	int	length;
 
+	if (ptr == 0)
+		return (write(1, "(nil)", 5));
 	length = 0;
 	length += write(1, "0x", 2);
 	if (ptr == 0)
