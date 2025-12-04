@@ -1,37 +1,49 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_hex.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: flhensel <flhensel@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/06 14:23:07 by flhensel          #+#    #+#             */
+/*   Updated: 2025/11/06 14:25:23 by flhensel         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int	write_hex(unsigned int n)
 {
-    int	length;
+	int	length;
 
-    if (n == 0)
-    {
-        ft_putchar_fd('0', 1);
-        return (1);
-    }
-    else
-    {
-        write_hex_helper(n);
-        length = hex_length(n);
-    }
-    return (length);
+	if (n == 0)
+	{
+		ft_putchar_fd('0', 1);
+		return (1);
+	}
+	else
+	{
+		write_hex_helper(n);
+		length = hex_length(n);
+	}
+	return (length);
 }
 
 int	write_hexx(unsigned int n)
 {
-    int	length;
+	int	length;
 
-    if (n == 0)
-    {
-        ft_putchar_fd('0', 1);
-        return (1);
-    }
-    else
-    {
-        write_hexx_helper(n);
-        length = hex_length(n);
-    }
-    return (length);
+	if (n == 0)
+	{
+		ft_putchar_fd('0', 1);
+		return (1);
+	}
+	else
+	{
+		write_hexx_helper(n);
+		length = hex_length(n);
+	}
+	return (length);
 }
 
 void	write_hex_helper(unsigned int n)
